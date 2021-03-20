@@ -1,21 +1,72 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {Label, Container, Header, Title, Form, Item, Input, Button, Text} from 'native-base'
+import { StyleSheet, View, Image,  } from 'react-native';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+      <Container>
+        <Header style={styles.header}>
+          <Title>MoveOn</Title>
+        </Header>
+
+        <View style={styles.view}>
+          <Image style={styles.image} source={require('./assets/login-account.png')} />
+        </View>
+
+
+        <Form style={styles.formEmail}>
+          <Item floatingLabel style={styles.emailItem}>
+            <Label>Email/Phone number</Label>
+            <Input />
+          </Item>
+
+          <Item style={styles.emailItem} floatingLabel last>
+            <Label>Password</Label>
+            <Input />
+          </Item>
+
+          <Item style={styles.emailItem}>
+            <Button block style={styles.loginButton}>
+                <Text style={styles.buttonText}>
+                    SIGN IN
+                </Text>
+            </Button>
+          </Item>
+        </Form>
+      </Container>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  header: {
+    backgroundColor: '#88B34C',
+    textAlign: 'center',
+    alignItems: 'center'
   },
+  view:{
+    alignItems: 'center',
+    marginTop: 20
+  },
+  image: {
+    width:330,
+    height: 220,
+  },
+  formEmail:{
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+  emailItem:{
+    marginTop:20
+  },
+  loginButton:{
+    backgroundColor: '#88B34C',
+    width: '100%',
+  },
+  buttonText:{
+    color: '#ffffff',
+    fontSize:20,
+    fontWeight: 'bold'
+  }
 });
+
+export default App
